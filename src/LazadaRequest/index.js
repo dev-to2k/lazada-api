@@ -3,9 +3,9 @@
 
 import rp from 'request-promise'
 
+import type { KeyValueDictionary } from 'src/types/Common'
 import { RESPONSE } from './constants'
 import { signRequest } from './signature'
-import type { KeyValueDictionary } from 'src/types/Common'
 import type { SDKRequestMetaData, SystemQueryParams } from './types/Request'
 import type { LazadaOpenPlatformAPIResponse } from './types/Response'
 

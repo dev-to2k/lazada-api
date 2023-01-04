@@ -1,13 +1,12 @@
 // @flow
 'use strict'
 
-import { GATEWAY } from './constants'
 import type { APIAction } from './types/Common'
 import type { ProductFilter } from './types/Product'
 
 import LazadaRequest from 'src/LazadaRequest'
-import { PROTOCOL, HTTP_ACTION } from 'src/LazadaRequest/constants'
-import type { Protocol, HttpAction } from 'src/LazadaRequest/types/Request'
+import { HTTP_ACTION, PROTOCOL } from 'src/LazadaRequest/constants'
+import type { HttpAction, Protocol } from 'src/LazadaRequest/types/Request'
 
 const getScheme = (protocol: Protocol): string => {
   return protocol === PROTOCOL.HTTP ? 'http://' : 'https://'
@@ -48,6 +47,30 @@ const getProducts: APIAction = (
   protocol?: Protocol = PROTOCOL.HTTPS,
 ) => {
   const apiPath = '/products/get'
+  const baseURL = getScheme(protocol) + gateway
+  return LazadaRequest.get(
+    baseURL,
+    appKey,
+    appSecret,
+    apiPath,
+    accessToken,
+    payload,
+  )
+}
+
+// Retrieve the list of all product categories suggestion in the system
+const getCategorySuggest: APIAction = (
+  appKey: string,
+  appSecret: string,
+  gateway: string,
+  accessToken: ?string,
+  payload: {
+    product_name: string,
+  },
+  action?: HttpAction = HTTP_ACTION.GET,
+  protocol?: Protocol = PROTOCOL.HTTPS,
+) => {
+  const apiPath = '/product/category/suggestion/get'
   const baseURL = getScheme(protocol) + gateway
   return LazadaRequest.get(
     baseURL,
@@ -305,10 +328,35 @@ const removeProduct: APIAction = (
   )
 }
 
+const uploadImage: APIAction = (
+  appKey: string,
+  appSecret: string,
+  gateway: string,
+  accessToken: ?string,
+  payload: {
+    image: any,
+  },
+  action?: HttpAction = HTTP_ACTION.GET,
+  protocol?: Protocol = PROTOCOL.HTTPS,
+) => {
+  const apiPath = '/image/upload'
+  const baseURL = getScheme(protocol) + gateway
+
+  return LazadaRequest.post(
+    baseURL,
+    appKey,
+    appSecret,
+    apiPath,
+    accessToken,
+    payload,
+  )
+}
+
 export default {
   getProducts,
   getCategoryTree,
   getCategoryAttributes,
+  getCategorySuggest,
   getBrands,
   createProduct,
   updateProduct,
@@ -316,4 +364,5 @@ export default {
   setImages,
   updatePriceQuantity,
   removeProduct,
+  uploadImage,
 }

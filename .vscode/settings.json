@@ -5,7 +5,13 @@
   "javascript.format.enable": false,
   "javascript.validate.enable": false,
   "eslint.autoFixOnSave": true,
-  "files.autoSave": "off",
+  "files.autoSave": "afterDelay",
   "flow.pathToFlow": "${workspaceFolder}/node_modules/.bin/flow",
   "markdown.extension.toc.githubCompatibility": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "cSpell.words": [
+    "Lazada"
+  ],
 }

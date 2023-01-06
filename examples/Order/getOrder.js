@@ -13,7 +13,8 @@ const aLazadaAPI = new LazadaAPI(appKey, appSecret, countryCode, accessToken)
 const getOrders = async () => {
   try {
     const res = await aLazadaAPI.getOrders({
-      sort_by: 'created_at',
+      created_after: '2018-02-09T22:44:30+08:00',
+      update_after: '2018-02-09T22:44:30+08:00',
     })
     console.log(res.data.orders)
     return res

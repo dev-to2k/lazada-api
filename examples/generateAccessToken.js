@@ -22,7 +22,7 @@ const LazadaAPI = require('../lib') // require transpiled js code
  */
 const aLazadaAPI = new LazadaAPI(appKey, appSecret, countryCode)
 
-const authCode = '123' // replace valid authCode here
+const authCode = '0_115082_CQiAFEP5KTl9SjiIEy4CvhMb75992' // replace valid authCode here
 const params = {
   code: authCode,
 }
@@ -52,7 +52,7 @@ const response = aLazadaAPI
     refresh_token: '{{refresh_token}}',
     account_platform: 'seller_center',
     refresh_expires_in: 2592000,
-    country_user_info: 
+    country_user_info:
     [ { country: 'sg',
         user_id: '{{user_id}}',
         seller_id: '{{seller_id}}',

@@ -5,8 +5,7 @@ const appSecret = process.env.LAZADA_APP_SECRET
 const countryCode = process.env.LAZADA_APP_COUNTRY
 const accessToken = process.env.LAZADA_APP_ACCESS_TOKEN
 
-const LazadaAPI = require('../lib')
-const fs = require('fs')
+const LazadaAPI = require('../../lib')
 
 const aLazadaAPI = new LazadaAPI(appKey, appSecret, countryCode, accessToken)
 
@@ -43,26 +42,28 @@ const updateProduct = async () => {
     const products = await getProducts()
     const imageUrl = await migrateImage()
     const itemId = products[0].item_id
+    const sellerSku = products[0].skus[0].SellerSku
 
     const res = await aLazadaAPI.updateProduct({
       payload: JSON.stringify({
         Request: {
           Product: {
             ItemId: itemId,
+            Images: {
+              Image: [imageUrl],
+            },
             Attributes: {
               name: productName,
               description: 'TEST',
               brand: 'No Brand',
               model: 'test',
-              waterproof: 'None',
               warranty_type: 'No warranty',
               Hazmat: 'None',
-              material: 'Plastic',
             },
             Skus: {
               Sku: [
                 {
-                  SellerSku: '2140281240-1672813454799-0',
+                  SellerSku: sellerSku,
                   quantity: '3',
                   price: '3500000',
                   package_height: '10',

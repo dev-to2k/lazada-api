@@ -6,7 +6,6 @@ const countryCode = process.env.LAZADA_APP_COUNTRY
 const accessToken = process.env.LAZADA_APP_ACCESS_TOKEN
 
 const LazadaAPI = require('../../lib')
-const fs = require('fs')
 
 const aLazadaAPI = new LazadaAPI(appKey, appSecret, countryCode, accessToken)
 
@@ -59,10 +58,8 @@ const createProduct = async () => {
               description: 'TEST',
               brand: 'No Brand',
               model: 'test',
-              waterproof: 'None',
               warranty_type: 'No warranty',
               Hazmat: 'None',
-              material: 'Plastic',
             },
             Skus: {
               Sku: [

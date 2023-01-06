@@ -5,8 +5,7 @@ const appSecret = process.env.LAZADA_APP_SECRET
 const countryCode = process.env.LAZADA_APP_COUNTRY
 const accessToken = process.env.LAZADA_APP_ACCESS_TOKEN
 
-const LazadaAPI = require('../lib')
-const fs = require('fs')
+const LazadaAPI = require('../../lib')
 
 const aLazadaAPI = new LazadaAPI(appKey, appSecret, countryCode, accessToken)
 

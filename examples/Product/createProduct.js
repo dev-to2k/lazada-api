@@ -43,7 +43,7 @@ const migrateImage = async () => {
 const createProduct = async () => {
   try {
     const categoryId = await getCategorySuggest()
-    const imageUrl = await migrateImage()
+    // const imageUrl = await migrateImage()
 
     const res = await aLazadaAPI.createProduct({
       payload: JSON.stringify({

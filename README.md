@@ -42,7 +42,7 @@
     const aLazadaAPIWithToken = new LazadaAPI(appKey, appSecret, 'SINGAPORE', accessToken)
     ```
 
-  1. Call API action with proper parameters  
+  1. Call API action with proper parameters
 
       ```js
       // all API action return promise
@@ -82,6 +82,7 @@
 | --------------------- | ------------------ |
 | createProduct         | :heavy_check_mark: |
 | getBrands             | :heavy_check_mark: |
+| getCategorySuggestion | :heavy_check_mark: |
 | getCategoryAttributes | :heavy_check_mark: |
 | getCategoryTree       | :heavy_check_mark: |
 | getProducts           | :heavy_check_mark: |
@@ -145,7 +146,7 @@
 
 ## Convention
 
-1. sdk variables: `camelCase`  
+1. sdk variables: `camelCase`
 1. api variables: `snake_case` or `PascalCase`
 
 ## File structure
@@ -153,7 +154,7 @@
 ```
 src/
 ├── LazadaAPI           // LazadaAPI: top level controller class
-│   └── index.js        
+│   └── index.js
 ├── LazadaClient        // LazadaClient: namespace seperated API actions
 │   ├── index.js
 │   ├── logistics.js

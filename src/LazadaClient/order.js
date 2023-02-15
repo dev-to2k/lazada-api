@@ -1,11 +1,12 @@
+/** @format */
+
 // @flow
 'use strict'
-import { GATEWAY } from './constants'
+import LazadaRequest from 'src/LazadaRequest'
+import { HTTP_ACTION, PROTOCOL } from 'src/LazadaRequest/constants'
+import type { HttpAction, Protocol } from 'src/LazadaRequest/types/Request'
 import type { APIAction } from './types/Common'
 import type { OrderStatus } from './types/Order'
-import LazadaRequest from 'src/LazadaRequest'
-import { PROTOCOL, HTTP_ACTION } from 'src/LazadaRequest/constants'
-import type { Protocol, HttpAction } from 'src/LazadaRequest/types/Request'
 
 const getScheme = (protocol: Protocol): string => {
   return protocol === PROTOCOL.HTTP ? 'http://' : 'https://'
@@ -253,6 +254,29 @@ const setStatusToPackedByMarketplace: APIAction = (
   protocol?: Protocol = PROTOCOL.HTTPS,
 ) => {
   const apiPath = '/order/pack'
+  const baseURL = getScheme(protocol) + gateway
+  return LazadaRequest.post(
+    baseURL,
+    appKey,
+    appSecret,
+    apiPath,
+    accessToken,
+    payload,
+  )
+}
+
+const setStatusToSOFDelivered: APIAction = (
+  appKey: string,
+  appSecret: string,
+  gateway: string,
+  accessToken: ?string,
+  payload: {
+    order_item_ids: string,
+  },
+  action?: HttpAction = HTTP_ACTION.POST,
+  protocol?: Protocol = PROTOCOL.HTTPS,
+) => {
+  const apiPath = '/order/sof/delivered'
   const baseURL = getScheme(protocol) + gateway
   return LazadaRequest.post(
     baseURL,

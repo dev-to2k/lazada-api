@@ -12,6 +12,30 @@ const getScheme = (protocol: Protocol): string => {
   return protocol === PROTOCOL.HTTP ? 'http://' : 'https://'
 }
 
+const getProductItem: APIAction = (
+  appKey: string,
+  appSecret: string,
+  gateway: string,
+  accessToken: ?string,
+  payload: {
+    item_id: number,
+    seller_sku?: string,
+  },
+  action?: HttpAction = HTTP_ACTION.GET,
+  protocol?: Protocol = PROTOCOL.HTTPS,
+) => {
+  const apiPath = '/product/item/get'
+  const baseURL = getScheme(protocol) + gateway
+  return LazadaRequest.get(
+    baseURL,
+    appKey,
+    appSecret,
+    apiPath,
+    accessToken,
+    payload,
+  )
+}
+
 /**
  * getProducts GET /products/get
  * @param {Object} payload
@@ -365,4 +389,5 @@ export default {
   updatePriceQuantity,
   removeProduct,
   uploadImage,
+  getProductItem,
 }

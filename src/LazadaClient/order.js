@@ -360,4 +360,5 @@ export default {
   setStatusToPackedByMarketplace,
   setInvoiceNumber,
   getDocument,
+  setStatusToSOFDelivered,
 }

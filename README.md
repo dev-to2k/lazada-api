@@ -75,6 +75,7 @@
 | setStatusToCanceled            | :heavy_check_mark: |
 | setStatusToPackedByMarketplace | :heavy_check_mark: |
 | setStatusToReadyToShip         | :heavy_check_mark: |
+| setStatusToSOFDelivered        | :heavy_check_mark: |
 
 ---
 
@@ -86,6 +87,7 @@
 | getCategoryAttributes | :heavy_check_mark: |
 | getCategoryTree       | :heavy_check_mark: |
 | getProducts           | :heavy_check_mark: |
+| getProductItem        | :heavy_check_mark: |
 | getQcStatus           | :no_entry_sign:    |
 | getResponse           | :no_entry_sign:    |
 | migrateImage          | :heavy_check_mark: |

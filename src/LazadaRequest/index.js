@@ -69,7 +69,7 @@ const get = (
     url: base + apiPath,
     qs,
     json: true,
-  }).then(response => {
+  }).then((response) => {
     const meta = {
       method: 'GET',
       apiPath,
@@ -100,7 +100,7 @@ const post = (
     qs,
     json: true,
     body,
-  }).then(response => {
+  }).then((response) => {
     const meta = {
       method: 'POST',
       apiPath,

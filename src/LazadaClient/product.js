@@ -360,7 +360,7 @@ const uploadImage: APIAction = (
   payload: {
     image: any,
   },
-  action?: HttpAction = HTTP_ACTION.GET,
+  action?: HttpAction = HTTP_ACTION.POST,
   protocol?: Protocol = PROTOCOL.HTTPS,
 ) => {
   const apiPath = '/image/upload'

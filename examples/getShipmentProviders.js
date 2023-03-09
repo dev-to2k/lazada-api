@@ -11,12 +11,12 @@ const aLazadaAPI = new LazadaAPI(appKey, appSecret, countryCode, accessToken)
 
 aLazadaAPI
   .getShipmentProviders()
-  .then(res => {
+  .then((res) => {
     console.log(
       '[getShipmentProviders] resolve\n',
       JSON.stringify(res, null, 4),
     )
   })
-  .catch(err => {
+  .catch((err) => {
     console.log('[getShipmentProviders] reject\n', JSON.stringify(err, null, 4))
   })

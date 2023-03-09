@@ -8,7 +8,8 @@
 1. Install sdk
 
     ```shell
-    [~/project/dir] $ npm install lazada-open-platform-sdk
+    [~/project/dir] $ npm install -> install
+    [~/project/dir] $ npm run dev -> start
     ```
 
 1. Require `LazadaAPI` class
